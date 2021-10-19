@@ -10,7 +10,8 @@ class requirements:
 
 In the simplified version,you’ll need to implement the following:
 
--Two players represented by two colors (red and yellow) take turns in selecting a grid-cell-Create the grid using buttons
+-Two players represented by two colors (red and yellow) take turns in selecting a grid-cell
+-Create the grid using buttons
 -When a user clicks on one of the buttons,it turns into the current player’s color and becomes unclickable. -If 4 buttons ofthe same color were connected (either vertically or horizontally),the player of that color is declared the winner,and the game is over.
 -If all the cells were occupied,the game is over.
 
