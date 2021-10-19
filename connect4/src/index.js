@@ -1,3 +1,27 @@
+/*
+Name: Anthony Barros 
+Student Number: 250974431
+
+Description: 
+
+This is a connect4 game built with simplistic functionality
+
+class requirements:
+
+In the simplified version,you’ll need to implement the following:
+
+-Two players represented by two colors (red and yellow) take turns in selecting a grid-cell-Create the grid using buttons
+-When a user clicks on one of the buttons,it turns into the current player’s color and becomes unclickable. -If 4 buttons ofthe same color were connected (either vertically or horizontally),the player of that color is declared the winner,and the game is over.
+-If all the cells were occupied,the game is over.
+
+TODO: 
+
+want to include "time travel" using the tutorial here: https://reactjs.org/tutorial/tutorial.html#completing-the-game
+
+simplified class requirements
+*/
+
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -19,6 +43,7 @@ class Board extends React.Component {
         };
     }
 
+    //refactor this code to make it less repetitive
     handleClick(i) {
         const squares = this.state.squares.slice();
 
