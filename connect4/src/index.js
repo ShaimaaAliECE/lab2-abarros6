@@ -14,21 +14,142 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          squares: Array(9).fill(null),
+          squares: Array(42).fill(null),
           xIsNext: true,
         };
     }
 
     handleClick(i) {
         const squares = this.state.squares.slice();
+
+        const column0 = [0,7,14,21,28,35];
+        const column1 = [1,8,15,22,29,36];
+        const column2 = [2,9,16,23,30,37];
+        const column3 = [3,10,17,24,31,38];
+        const column4 = [4,11,18,25,32,39];
+        const column5 = [5,12,19,26,33,40];
+        const column6 = [6,13,20,27,34,41];
+
         if (calculateWinner(squares) || squares[i]) {
             return;
-        }      
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({
-            squares: squares,
-            xIsNext: !this.state.xIsNext
-        });
+        }
+        
+        //check which column the selected cell belongs to
+        //then figure out which of the cells below the one selected are free
+        //populate the cell at the bottom of the column selected if its value is null
+
+
+        //first column0
+        if (column0.includes(i)){
+            const column = column0.slice().reverse();
+
+            for (let element of column) {
+                if (squares[element] === null) {
+                    squares[element] = this.state.xIsNext ? 'X' : 'O';
+                    this.setState({
+                        squares: squares,
+                        xIsNext: !this.state.xIsNext
+                    });
+                    break;
+                }   
+            }
+        }
+
+        //second column1
+        if (column1.includes(i)){
+            const column = column1.slice().reverse();
+
+            for (let element of column) {
+                if (squares[element] === null) {
+                    squares[element] = this.state.xIsNext ? 'X' : 'O';
+                    this.setState({
+                        squares: squares,
+                        xIsNext: !this.state.xIsNext
+                    });
+                    break;
+                }   
+            }
+        }
+
+        //third column2
+        if (column2.includes(i)){
+            const column = column2.slice().reverse();
+
+            for (let element of column) {
+                if (squares[element] === null) {
+                    squares[element] = this.state.xIsNext ? 'X' : 'O';
+                    this.setState({
+                        squares: squares,
+                        xIsNext: !this.state.xIsNext
+                    });
+                    break;
+                }   
+            }
+        }
+
+        //fourth column3
+        if (column3.includes(i)){
+            const column = column3.slice().reverse();
+
+            for (let element of column) {
+                if (squares[element] === null) {
+                    squares[element] = this.state.xIsNext ? 'X' : 'O';
+                    this.setState({
+                        squares: squares,
+                        xIsNext: !this.state.xIsNext
+                    });
+                    break;
+                }   
+            }
+        }
+
+        //fifth column4
+        if (column4.includes(i)){
+            const column = column4.slice().reverse();
+
+            for (let element of column) {
+                if (squares[element] === null) {
+                    squares[element] = this.state.xIsNext ? 'X' : 'O';
+                    this.setState({
+                        squares: squares,
+                        xIsNext: !this.state.xIsNext
+                    });
+                    break;
+                }   
+            }
+        }
+
+         //sixth column5
+        if (column5.includes(i)){
+            const column = column5.slice().reverse();
+
+            for (let element of column) {
+                if (squares[element] === null) {
+                    squares[element] = this.state.xIsNext ? 'X' : 'O';
+                    this.setState({
+                        squares: squares,
+                        xIsNext: !this.state.xIsNext
+                    });
+                    break;
+                }   
+            }
+        }
+
+         //seventh column6
+         if (column6.includes(i)){
+            const column = column6.slice().reverse();
+
+            for (let element of column) {
+                if (squares[element] === null) {
+                    squares[element] = this.state.xIsNext ? 'X' : 'O';
+                    this.setState({
+                        squares: squares,
+                        xIsNext: !this.state.xIsNext
+                    });
+                    break;
+                }   
+            }
+        }
         console.log(squares);
     }    
 
@@ -123,7 +244,7 @@ class Game extends React.Component {
     }
   }
 
-  function calculateWinner(squares) {
+function calculateWinner(squares) {
 
     const winningArrays = [
         [0, 1, 2, 3],
