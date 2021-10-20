@@ -1,4 +1,16 @@
+html,
 body {
+  height: 100%;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
