@@ -314,7 +314,13 @@ function calculateWinner(squares) {
           return squares[a];
         }
     }
-      return null;
+
+    if (!squares.includes(null)){
+      console.log('here');
+      return 'no one! It is a draw';
+    }
+    
+    return null;
   }
   
   // ========================================
