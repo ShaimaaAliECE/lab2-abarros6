@@ -34,6 +34,50 @@ function Square(props) {
       </button>
     );
   }
+
+/*
+this is where im gonna make the button that puts the grid on the screen
+*/
+class CreateGrid extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        boardOn: false,
+      };
+      this.whenClicked = this.whenClicked.bind(this);
+    }
+
+    whenClicked(event) {
+      this.setState({
+        boardOn: !this.state.boardOn
+      });
+    }
+
+    renderBoard() {
+      if (this.state.boardOn){
+        return <Board />;
+      } else {
+        return null;
+      }
+    }
+
+    render() {
+      return (
+        <div> 
+          <button className = "gridButton" onClick = {this.whenClicked} label = "create the board">
+            Turn the board ON or OFF
+          </button>
+          <div>
+            {this.renderBoard()}
+          </div>
+        </div>
+      );
+    }
+}
+
+/*
+above this is where im testing the button that instantiates the grid
+*/ 
   
 class Board extends React.Component {
     constructor(props) {
@@ -259,7 +303,7 @@ class Game extends React.Component {
       return (
         <div className="game">
           <div className="game-board">
-            <Board />
+            <CreateGrid />
           </div>
           <div className="game-info">
             <div>{/* status */}</div>
