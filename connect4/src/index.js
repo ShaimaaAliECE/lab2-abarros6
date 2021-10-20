@@ -88,6 +88,24 @@ class Board extends React.Component {
         };
     }
 
+    checkColumn(columnIn, input, squares) {
+
+      if (columnIn.includes(input)){
+        const column = columnIn.slice().reverse();
+
+        for (let element of column) {
+            if (squares[element] === null) {
+                squares[element] = this.state.xIsNext ? 'X' : 'O';
+                this.setState({
+                    squares: squares,
+                    xIsNext: !this.state.xIsNext
+                });
+                break;
+            }   
+        }
+      }
+    }
+
     //refactor this code to make it less repetitive
     handleClick(i) {
         const squares = this.state.squares.slice();
@@ -108,118 +126,20 @@ class Board extends React.Component {
         //then figure out which of the cells below the one selected are free
         //populate the cell at the bottom of the column selected if its value is null
 
+        this.checkColumn(column0, i, squares);
 
-        //first column0
-        if (column0.includes(i)){
-            const column = column0.slice().reverse();
+        this.checkColumn(column1, i, squares);
 
-            for (let element of column) {
-                if (squares[element] === null) {
-                    squares[element] = this.state.xIsNext ? 'X' : 'O';
-                    this.setState({
-                        squares: squares,
-                        xIsNext: !this.state.xIsNext
-                    });
-                    break;
-                }   
-            }
-        }
+        this.checkColumn(column2, i, squares);
 
-        //second column1
-        if (column1.includes(i)){
-            const column = column1.slice().reverse();
+        this.checkColumn(column3, i, squares);
 
-            for (let element of column) {
-                if (squares[element] === null) {
-                    squares[element] = this.state.xIsNext ? 'X' : 'O';
-                    this.setState({
-                        squares: squares,
-                        xIsNext: !this.state.xIsNext
-                    });
-                    break;
-                }   
-            }
-        }
+        this.checkColumn(column4, i, squares);
 
-        //third column2
-        if (column2.includes(i)){
-            const column = column2.slice().reverse();
+        this.checkColumn(column5, i, squares);
 
-            for (let element of column) {
-                if (squares[element] === null) {
-                    squares[element] = this.state.xIsNext ? 'X' : 'O';
-                    this.setState({
-                        squares: squares,
-                        xIsNext: !this.state.xIsNext
-                    });
-                    break;
-                }   
-            }
-        }
+        this.checkColumn(column6, i, squares);
 
-        //fourth column3
-        if (column3.includes(i)){
-            const column = column3.slice().reverse();
-
-            for (let element of column) {
-                if (squares[element] === null) {
-                    squares[element] = this.state.xIsNext ? 'X' : 'O';
-                    this.setState({
-                        squares: squares,
-                        xIsNext: !this.state.xIsNext
-                    });
-                    break;
-                }   
-            }
-        }
-
-        //fifth column4
-        if (column4.includes(i)){
-            const column = column4.slice().reverse();
-
-            for (let element of column) {
-                if (squares[element] === null) {
-                    squares[element] = this.state.xIsNext ? 'X' : 'O';
-                    this.setState({
-                        squares: squares,
-                        xIsNext: !this.state.xIsNext
-                    });
-                    break;
-                }   
-            }
-        }
-
-         //sixth column5
-        if (column5.includes(i)){
-            const column = column5.slice().reverse();
-
-            for (let element of column) {
-                if (squares[element] === null) {
-                    squares[element] = this.state.xIsNext ? 'X' : 'O';
-                    this.setState({
-                        squares: squares,
-                        xIsNext: !this.state.xIsNext
-                    });
-                    break;
-                }   
-            }
-        }
-
-         //seventh column6
-         if (column6.includes(i)){
-            const column = column6.slice().reverse();
-
-            for (let element of column) {
-                if (squares[element] === null) {
-                    squares[element] = this.state.xIsNext ? 'X' : 'O';
-                    this.setState({
-                        squares: squares,
-                        xIsNext: !this.state.xIsNext
-                    });
-                    break;
-                }   
-            }
-        }
         console.log(squares);
     }    
 
