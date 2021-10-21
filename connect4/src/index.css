@@ -31,7 +31,7 @@ ul {
 }
 
 .square {
-  background: #fff;
+  background: rgb(95, 91, 91);
   border: 1px solid #999;
   float: left;
   font-size: 24px;
@@ -43,6 +43,14 @@ ul {
   padding: 0;
   text-align: center;
   width: 34px;
+}
+
+.Xpeice {
+  color: yellow;
+}
+
+.Opeice {
+  color: red;
 }
 
 .square:focus {

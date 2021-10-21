@@ -35,9 +35,22 @@ function Square(props) {
     );
   }
 
-/*
-this is where im gonna make the button that puts the grid on the screen
-*/
+function Opeice(props) {
+  return (
+    <div className = 'Opeice'>
+      {props.value}
+    </div>
+  );
+}
+
+function Xpeice(props) {
+  return (
+    <div className = 'Xpeice'>
+      {props.value}
+    </div>
+  );
+}
+
 class CreateGrid extends React.Component {
     constructor(props) {
       super(props);
@@ -95,7 +108,7 @@ class Board extends React.Component {
 
         for (let element of column) {
             if (squares[element] === null) {
-                squares[element] = this.state.xIsNext ? 'X' : 'O';
+                squares[element] = this.state.xIsNext ? <Xpeice value = 'X'/> : <Opeice value = 'O'/>;
                 this.setState({
                     squares: squares,
                     xIsNext: !this.state.xIsNext
@@ -106,7 +119,6 @@ class Board extends React.Component {
       }
     }
 
-    //refactor this code to make it less repetitive
     handleClick(i) {
         const squares = this.state.squares.slice();
 
@@ -139,8 +151,6 @@ class Board extends React.Component {
         this.checkColumn(column5, i, squares);
 
         this.checkColumn(column6, i, squares);
-
-        console.log(squares);
     }    
 
     renderSquare(i) {
@@ -310,13 +320,14 @@ function calculateWinner(squares) {
 
     for (let i = 0; i < winningArrays.length; i++) {
         let [a, b, c, d] = winningArrays[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c] && squares[a] === squares[d]) {
-          return squares[a];
-        }
+        if (squares[a] !== null && squares[b] !== null && squares[c] !== null && squares[d] !== null ) {
+          if (squares[a].props.value && squares[a].props.value === squares[b].props.value && squares[a].props.value === squares[c].props.value && squares[a].props.value === squares[d].props.value) {
+            return squares[a].props.value;
+          }
+        } 
     }
 
     if (!squares.includes(null)){
-      console.log('here');
       return 'no one! It is a draw';
     }
     
